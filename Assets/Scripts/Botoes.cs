@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Botoes : MonoBehaviour
+public class BOTOES : MonoBehaviour
 {
-    public void CarregarPrototype()
+    public void CarregarMENU()
     {
-        SceneManager.LoadScene("Prototype");
+        SceneManager.LoadScene("MENU");
     }
-    public void CarregarMenu()
+    public void CarregarGAME()
     {//Chama no Onclick do botao de menu
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("GAME");
     }
 
-    public void CarregarGame()
+    public void CarregarGAMEOVER()
     {//Chama no Onclick do botao de jogar
 
-        SceneManager.LoadScene("Jogo");
+        SceneManager.LoadScene("GAMEOVER");
     }
 }

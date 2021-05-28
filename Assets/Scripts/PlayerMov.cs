@@ -1,13 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 public class PlayerMov : MonoBehaviour
 {
     [SerializeField]
     public float speed;         //velocidade de movimento, regula no Unity
     private Vector2 direction; //direção que o player vai andar
-    public Animator anim;      //chama a animação
+    public Animator anim;
     void Start()
     {
-        anim = GetComponent<Animator>(); //inicia a animação do cenario
+        anim = GetComponent<Animator>();
         direction = Vector2.up;
     }
     void Update()
@@ -23,75 +25,74 @@ public class PlayerMov : MonoBehaviour
     private void GetInput()
     {
         direction = Vector2.zero;
-        if (Input.GetKey(KeyCode.W))   // pode trocar o W pelo UpArrow
+        if (Input.GetKey(KeyCode.W))   // pode trocar o W pelo UpArrow, anda e fica com a animação up
         {
             direction += Vector2.up;
-            anim.SetBool("player_up", true);
-            anim.SetBool("player_down", false);
-            anim.SetBool("player_left", false);
-            anim.SetBool("player_right", false);
-            anim.SetBool("parado", false);
-
+            anim.SetBool("W", true);
+            anim.SetBool("A", false);
+            anim.SetBool("S", false);
+            anim.SetBool("D", false);
+            anim.SetBool("Parado", false);
         }
-        if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W))   //quando soltar o botão, fica só com a animação de parado ligada
         {
-            anim.SetBool("player_up", false);
-            anim.SetBool("player_down", false);
-            anim.SetBool("player_left", false);
-            anim.SetBool("player_right", false);
-            anim.SetBool("parado", true);
+            anim.SetBool("W", false);
+            anim.SetBool("A", false);
+            anim.SetBool("S", false); //simulando a animação de parado
+            anim.SetBool("D", false);
+            anim.SetBool("Parado", true);
         }
         if (Input.GetKey(KeyCode.S))
         {
             direction += Vector2.down;
-            anim.SetBool("player_up", false);
-            anim.SetBool("player_down", true);
-            anim.SetBool("player_left", false);
-            anim.SetBool("player_right", false);
-            anim.SetBool("parado", false);
+            anim.SetBool("W", false);
+            anim.SetBool("A", false);
+            anim.SetBool("S", true);
+            anim.SetBool("D", false);
+            anim.SetBool("Parado", false);
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
-            anim.SetBool("player_up", false);
-            anim.SetBool("player_down", false);
-            anim.SetBool("player_left", false);
-            anim.SetBool("player_right", false);
-            anim.SetBool("parado", true);
+            anim.SetBool("W", false);
+            anim.SetBool("A", false);
+            anim.SetBool("S", false);
+            anim.SetBool("D", false);
+            anim.SetBool("Parado", true);
         }
         if (Input.GetKey(KeyCode.A))
         {
             direction += Vector2.left;
-            anim.SetBool("player_up", false);
-            anim.SetBool("player_down", false);
-            anim.SetBool("player_left", true);
-            anim.SetBool("player_right", false);
-            anim.SetBool("parado", false);
+            anim.SetBool("W", false);
+            anim.SetBool("A", true);
+            anim.SetBool("S", false);
+            anim.SetBool("D", false);
+            anim.SetBool("Parado", false);
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
-            anim.SetBool("player_up", false);
-            anim.SetBool("player_down", false);
-            anim.SetBool("player_left", false);
-            anim.SetBool("player_right", false);
-            anim.SetBool("parado", true);
+            anim.SetBool("W", false);
+            anim.SetBool("A", false);
+            anim.SetBool("S", false);
+            anim.SetBool("D", false);
+            anim.SetBool("Parado", true);
         }
         if (Input.GetKey(KeyCode.D))
         {
             direction += Vector2.right;
-            anim.SetBool("player_up", false);
-            anim.SetBool("player_down", false);
-            anim.SetBool("player_left", false);
-            anim.SetBool("player_right", true);
-            anim.SetBool("parado", false);
+            anim.SetBool("W", false);
+            anim.SetBool("A", false);
+            anim.SetBool("S", false);
+            anim.SetBool("D", true);
+            anim.SetBool("Parado", false);
+
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
-            anim.SetBool("player_up", false);
-            anim.SetBool("player_down", false);
-            anim.SetBool("player_left", false);
-            anim.SetBool("player_right", false);
-            anim.SetBool("parado", true);
+            anim.SetBool("W", false);
+            anim.SetBool("A", false);
+            anim.SetBool("S", false);
+            anim.SetBool("D", false);
+            anim.SetBool("Parado", true);
         }
-
     }
 }
